@@ -1,6 +1,6 @@
 # Angular Homes App (Angular v16)
 
-## Do this tutorial on your own
+## Do it yourself
 
 - Install Angular if you don't have it installed
 
@@ -24,4 +24,12 @@
 
 ## To run the code in this repository
 
-Clone the repository, go to the directory and install the dependencies. In the `package.json` file is `json-server` command that will serve `db.json` in some port of your computer. Just run `npm run json-server`. After all, you can run the application with `ng serve`.
+1. Clone the repository, go to the directory and install the dependencies.
+
+2. In the `package.json` file is `json-server` command that will serve `db.json` in some port of your computer. Run the next command.
+
+  `npm run json-server`
+
+3. After all, you can run the application.
+
+  `ng serve`
