@@ -24,12 +24,12 @@
 
 ## To run the code in this repository
 
-1. Clone the repository, go to the directory and install the dependencies.
+- Clone the repository, go to the directory and install the dependencies.
 
-2. In the `package.json` file is `json-server` command that will serve `db.json` in some port of your computer. Run the next command.
+- In the `package.json` file is `json-server` command that will serve `db.json` in some port of your computer. Run the next command.
 
   `npm run json-server`
 
-3. After all, you can run the application.
+- After all, you can run the application.
 
   `ng serve`
