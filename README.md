@@ -1,20 +1,21 @@
-# Angular Homes App
+# Angular Homes App (Angular v16)
+
 - Install Angular if you don't have it installed
 
-  `npm install -g @angular/cli`
+`npm install -g @angular/cli`
 
 - Clone this branch to your local machine
 
-  `git clone -b homes-app-start git@github.com:angular/codelabs.git homes-app`
+`git clone -b homes-app-start git@github.com:angular/codelabs.git homes-app`
 
 - Once the code has been downloaded
 
-  `cd homes-app`
+`cd homes-app`
 
 - Install the depencies
 
-  `npm install` 
+`npm install` 
 
 - Run the application 
 
-  `ng serve`
+`ng serve`
