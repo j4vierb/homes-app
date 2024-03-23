@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 
+/**
+ * The root component for the application.
+ * The template contains a header with the brand logo and a router-outlet for the main content.
+ */
 @Component({
   standalone: true,
   selector: 'app-root',

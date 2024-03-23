@@ -5,6 +5,6 @@ import routeConfig from './app/routes';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideRouter(routeConfig)
+    provideRouter(routeConfig) // enable routing
   ]
 }).catch(err => console.error(err));
