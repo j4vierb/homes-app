@@ -10,13 +10,14 @@ import { HousingService } from '../housing.service';
   imports: [CommonModule, HousingLocationComponent],
   template: `
     <section>
-      <form>
-        <input type="text" placeholder="Filter by city" />
-        <button class="primary" type="button">Search</button>
+      <form (submit)="$event.preventDefault(); filterResults(filter.value);">
+        <input type="text" placeholder="Filter by city" #filter/>
+        <button class="primary" type="button" (click)="filterResults(filter.value);">Search</button>
       </form>
     </section>
+    <span *ngIf="match" class="match">Doesn't match</span>
     <section class="results">
-      <app-housing-location *ngFor="let housingLocation of housingLocationList" [housingLocation]="housingLocation"></app-housing-location>
+      <app-housing-location *ngFor="let housingLocation of filteredLocationList" [housingLocation]="housingLocation"></app-housing-location>
     </section>
   `,
   styleUrls: ['./home.component.css']
@@ -24,8 +25,26 @@ import { HousingService } from '../housing.service';
 export class HomeComponent {
   housingLocationList: HousingLocation[] = [];
   housingService: HousingService = inject(HousingService);
+  filteredLocationList: HousingLocation[] = [];
+  match: boolean = false;
 
   constructor() {
-    this.housingLocationList = this.housingService.getAllHousingLocations();
+    this.housingService.getAllHousingLocations().then((housingList: HousingLocation[]) => {
+      this.housingLocationList = housingList;
+      this.filteredLocationList = housingList;
+    });
+  }
+
+  filterResults(text: string): void {
+    if(!text) this.filteredLocationList = this.housingLocationList;
+
+    let locationList = this.housingLocationList.filter(
+      housingLocation => housingLocation?.city.toLowerCase().includes(text.toLowerCase())
+    );
+
+    // if doesn't match any location, show all locations
+    this.match = locationList.length == 0 ? true : false;
+
+    this.filteredLocationList = locationList.length == 0 ? this.housingLocationList : locationList;
   }
 }
